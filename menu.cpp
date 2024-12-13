@@ -7,16 +7,6 @@ int n;
 
 
 
-
-void tukar(int *a, int *b)
-{
-  int t = *a;
-  *a = *b;
-  *b = t;
-}
-
-
-
 int main()
 {
   char pl;
@@ -91,5 +81,18 @@ void tampilkanData()
     cout << "\n";
     getch();
 }
+void tukar(int *a, int *b)
+{
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
 
+void sortingAsc()
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+    }
+}
 
