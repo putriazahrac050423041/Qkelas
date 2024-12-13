@@ -17,43 +17,33 @@ void dMenu() {
 }
 
 
-int main()
-{
-  char pl;
-  cout << "Masukkan jumlah data (maksimal 100): ";
-  cin >> n; // Mengatur jumlah data di sini
-  if (n > 100) n = 100; // Batasi jumlah data maksimal 100
+int main() {
+    int data[100];
+    char pl;
 
-  do
-  {
-    
-    system("cls");
-    cout << "Aplikasi sorting bubble" << "\n";
-    cout << "1. masukkan data" << "\n";
-    cout << "2. tampilkan data" << "\n";
-    cout << "3. sorting asc" << "\n";
-    cout << "4. sorting dsc" << "\n";
-    cout << "5. Exit" << "\n";
-    cout << "Masukan angka :";
-    pl = getch();
-    
-    switch (pl)
-    {
-    case '1':
-    void masukkanData()
-      {
-        system("cls");
-          for (int i = 0; i < n; i++)
-          {
-              cout << "Masukkan data ke-" << (i + 1) << ": ";
-              cin >> arrdata[i];
-          }
-          cout << "Data berhasil dimasukkan.\n";
-          getch();
-      }
-            masukkanData();
-      break;
-    case '2':
+    do {
+        dMenu();
+        pl = getch();
+
+        switch (pl) {
+            case '1': {
+                system("cls");
+                cout << "Masukkan jumlah data (1-100): ";
+                cin >> n;
+                if (n > 0 && n <= 100) {
+                    cout << "Masukkan " << n << " angka:\n";
+                    for (int i = 0; i < n; i++) {
+                        cout << "Data ke-" << (i + 1) << ": ";
+                        cin >> data[i];
+                    }
+                    cout << "\nData berhasil dimasukkan!";
+                } else {
+                    cout << "Jumlah data tidak valid. Harus antara 1-100.";
+                }
+                getch();
+                break;
+            }
+            case '2':
       tampilkanData();
       /* code */
       break;
@@ -79,6 +69,9 @@ int main()
     } while (pl != '5');
   return 0;
 }
+    
+    
+    
   
 void tampilkanData()
 {
