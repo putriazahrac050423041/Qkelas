@@ -80,4 +80,16 @@ int main()
     cout << "Data berhasil dimasukkan.\n";
     getch();
 }
+void tampilkanData()
+{
+    system("cls");
+    cout << "Data yang dimasukkan:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arrdata[i] << " ";
+    }
+    cout << "\n";
+    getch();
+}
+
 
