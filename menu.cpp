@@ -3,19 +3,57 @@
 using namespace std;
 
 int data[100];
-int n;
+int n; //untuk jumlah data
 
-void dMenu() {
-    system("cls");
-    cout << "Aplikasi Sorting Bubble\n";
-    cout << "1. Masukkan data\n";
-    cout << "2. Tampilkan data\n";
-    cout << "3. Sorting ascending\n";
-    cout << "4. Sorting descending\n";
-    cout << "5. Exit\n";
-    cout << "Masukkan angka: ";
+void dMenu(){
+system("cls");
+cout<<"Aplikasi Sorting Bubble"<<"\n";       
+cout<<"1. Masukkan data"<<"\n";            
+cout<<"2. Tampilkan data"<<"\n";            
+cout<<"3. Sorting asc"<<"\n";           
+cout<<"4. Sorting dsc"<<"\n";            
+cout<<"5. Exit"<<"\n";           
+cout<<"Masukan angka :";        
 }
 
+void tukar(int *a,int *b){
+  int t=*a;
+  *a=*b;
+  *b=t;
+}
+
+void tampilkanData(int data[], int n) {
+    if (n > 0) {
+        cout << "Data saat ini:\n";
+        for (int i = 0; i < n; i++) {
+            cout << "Data ke-" << (i + 1) << ": " << data[i] << "\n";
+        }
+    } else {
+        cout << "Data kosong. Masukkan data terlebih dahulu!";
+    }
+}
+
+void sortingAscending(int data[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (data[j] > data[j + 1]) {
+                tukar(&data[j], &data[j + 1]);
+            }
+        }
+    }
+    cout << "Data berhasil diurutkan secara ascending!";
+}
+
+void sortingDescending(int data[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (data[j] < data[j + 1]) {
+                tukar(&data[j], &data[j + 1]);
+            }
+        }
+    }
+    cout << "Data berhasil diurutkan secara descending!";
+}
 
 int main() {
     int data[100];
@@ -23,7 +61,7 @@ int main() {
 
     do {
         dMenu();
-        pl = getch();
+        pl = getch();   
 
         switch (pl) {
             case '1': {
@@ -43,85 +81,41 @@ int main() {
                 getch();
                 break;
             }
-            case '2':
-      tampilkanData();
-      /* code */
-      break;
-    case '3':
-      sortingAsc();
-      /* code */
-      break;
-    case '4':
-      sortingDsc();
-      /* code */
-      break;
-    case '5':
-       cout << "Terima kasih.\n";
-      /* code */
-      break;
-
-    default:
-      system("cls");
-      cout << "Pilihan Tidak Tersedia";
-      getch();
-      break;
-    }
+            case '2': {
+                          system("cls");
+                          tampilkanData(data, n);
+                          getch();
+                          break;
+                      }
+            case '3': {
+                          system("cls");
+                          if (n > 0) {
+                              sortingAscending(data, n);
+                          } else {
+                              cout << "Data kosong. Masukkan data terlebih dahulu!";
+                          }
+                          getch();
+                          break;
+                      }
+            case '4': {
+                system("cls");
+                if (n > 0) {
+                    sortingDescending(data, n);
+                } else {
+                    cout << "Data kosong. Masukkan data terlebih dahulu!";
+                }
+                getch();
+                break;
+            }
+            case '5':
+                break;
+            default:
+                system("cls");
+                cout << "Pilihan Tidak Tersedia";
+                getch();
+                break;
+        }
     } while (pl != '5');
-  return 0;
-}
-    
-    
-    
-  
-void tampilkanData()
-{
-    system("cls");
-    cout << "Data yang dimasukkan:\n";
-    for (int i = 0; i < n; i++)
-    {
-        cout << arrdata[i] << " ";
-    }
-    cout << "\n";
-    getch();
-}
-void tukar(int *a, int *b)
-{
-  int t = *a;
-  *a = *b;
-  *b = t;
-}
 
-#untuk sortingAsc
-void sortingAsc()
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            if (arrdata[j] > arrdata[j + 1])
-            {
-                tukar(&arrdata[j], &arrdata[j + 1]);
-            }
-        }
-    }
-    cout << "Data berhasil diurutkan secara ascending.\n";
-    getch();
-
-}
-
-#untuk sortingDsc
-void sortingDsc()
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            if (arrdata[j] < arrdata[j + 1])
-            {
-                tukar(&arrdata[j], &arrdata[j + 1]);
-            }
-        }
-    }
-    cout << "Data berhasil diurutkan secara descending.\n";
-    getch();
+    return 0;
 }
