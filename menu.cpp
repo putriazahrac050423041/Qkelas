@@ -5,6 +5,16 @@ using namespace std;
 int data[100];
 int n;
 
+void dMenu() {
+    system("cls");
+    cout << "Aplikasi Sorting Bubble\n";
+    cout << "1. Masukkan data\n";
+    cout << "2. Tampilkan data\n";
+    cout << "3. Sorting ascending\n";
+    cout << "4. Sorting descending\n";
+    cout << "5. Exit\n";
+    cout << "Masukkan angka: ";
+}
 
 
 int main()
@@ -30,8 +40,18 @@ int main()
     switch (pl)
     {
     case '1':
-      /* code */
-      masukkanData();
+    void masukkanData()
+      {
+        system("cls");
+          for (int i = 0; i < n; i++)
+          {
+              cout << "Masukkan data ke-" << (i + 1) << ": ";
+              cin >> arrdata[i];
+          }
+          cout << "Data berhasil dimasukkan.\n";
+          getch();
+      }
+            masukkanData();
       break;
     case '2':
       tampilkanData();
@@ -59,17 +79,7 @@ int main()
     } while (pl != '5');
   return 0;
 }
-  void masukkanData()
-{
-  system("cls");
-    for (int i = 0; i < n; i++)
-    {
-        cout << "Masukkan data ke-" << (i + 1) << ": ";
-        cin >> arrdata[i];
-    }
-    cout << "Data berhasil dimasukkan.\n";
-    getch();
-}
+  
 void tampilkanData()
 {
     system("cls");
