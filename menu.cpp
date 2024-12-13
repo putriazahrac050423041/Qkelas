@@ -88,6 +88,7 @@ void tukar(int *a, int *b)
   *b = t;
 }
 
+#untuk sortingAsc
 void sortingAsc()
 {
     for (int i = 0; i < n - 1; i++)
