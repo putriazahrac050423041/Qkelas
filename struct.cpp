@@ -74,4 +74,16 @@ void perbaikanData(int p) {
     }
     cin.get();
 }
+void hapusDataM(int p) {
+    if (p >= 0 && p <= pos) {
+        for (int i = p; i < pos; i++) {
+            sikc[i] = sikc[i + 1];
+        }
+        pos--;
+        cout << "\nData mahasiswa SIKC-3B berhasil dihapus!\n";
+    } else {
+        cout << "\nIndeks mahasiswa SIKC-3B tidak valid!\n";
+    }
+    cin.get();
+}
 
