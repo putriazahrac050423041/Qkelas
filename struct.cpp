@@ -86,4 +86,63 @@ void hapusDataM(int p) {
     }
     cin.get();
 }
-
+int main() {
+    char pl;
+    do {
+        dMenu();
+        pl = getch();
+        switch (pl) {
+            case '1': {
+                int jml;
+                system("cls");
+                cout << "Jumlah mahasiswa SIKC-3B yang ingin ditambahkan: ";
+                cin >> jml;
+                cin.ignore();
+                for (int i = 0; i < jml; i++) {
+                    masukanData();
+                }
+                break;
+            }
+            case '2': {
+                tampilkanData();
+                break;
+            }
+            case '3': {
+                int ubahdt;
+                system("cls");
+                cout << "Masukkan nomor mahasiswa SIKC-3B yang ingin diperbaiki: ";
+                cin >> ubahdt;
+                if (ubahdt >= 1 && ubahdt <= pos + 1) {
+                    perbaikanData(ubahdt - 1);
+                } else {
+                    cout << "\nNomor mahasiswa SIKC-3B tidak valid!\n";
+                    cin.get();
+                }
+                break;
+            }
+            case '4': {
+                int hapusdt;
+                system("cls");
+                cout << "Masukkan nomor mahasiswa SIKC-3B yang ingin dihapus: ";
+                cin >> hapusdt;
+                if (hapusdt >= 1 && hapusdt <= pos + 1) {
+                    hapusDataM(hapusdt - 1);
+                } else {
+                    cout << "\nNomor mahasiswa SIKC-3B tidak valid!\n";
+                    cin.get();
+                }
+                break;
+            }
+            case '5':
+                system("cls");
+                cout << "Keluar dari program.\n";
+                break;
+            default:
+                system("cls");
+                cout << "Pilihan tidak tersedia.\n";
+                cin.get();
+                break;
+        }
+    } while (pl != '5');
+    return 0;
+}
